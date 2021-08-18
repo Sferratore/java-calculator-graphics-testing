@@ -6,40 +6,40 @@ public class GraphicTesting {
 	public static void main(String[] args) {
 		
 		
-		//CREAZIONE DEL FRAME
+		//FRAME CREATION
 		JFrame frame = new JFrame();
 		frame.setSize(600, 400);
-		frame.setName("Addizioni");
+		frame.setName("Addition");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		//CREAZIONE PANNELLO PRINCIPALE
+		//MAIN PANEL CREATION
 		JPanel panel = new JPanel();
 		panel.setLayout(new BorderLayout());
 		panel.setSize(new Dimension(600, 400));                                     //SETSIZE PANEL
 		
-		//CREAZIONE PRIMO PANNELLO SECONDARIO CON DUE AREE DI TESTO, LABEL E PULSANTE
+		//SECOND PANEL CREATION WITH TWO TEXTFIELDS, 1 LABEL AND BUTTON
 		JTextField tf = new JTextField(5);
 		JTextField tf2 = new JTextField(5);
 		JLabel label = new JLabel("Inserisci due numeri: ");
 		JPanel panel2 = new JPanel();
 		JButton button = new JButton("Esegui");
 		
-		//CREAZIONE PANNELLO SECONDARIO DI TITOLO CON LABEL E CHECKBOX
+		
 		JLabel labelt = new JLabel("Product calculator");
 		JPanel titlepanel = new JPanel();
 		titlepanel.add(labelt);
-		JCheckBox cxk = new JCheckBox("Hi! This is a testing checkbox :)");
+		JCheckBox cxk = new JCheckBox("Want to do multiplication instead?");
 		titlepanel.add(cxk);
 		
 		
-		//IMPLEMENTAZIONE ACTIONLISTENER DI BUTTON CON CONTROLLO SU CHECKBOX
-		class buttonAction implements ActionListener{                                    //IMPLEMENTAZIONE LISTENER
+		//BUTTON ACTIONLISTENER ON CHECKBOX
+		class buttonAction implements ActionListener{                                    //LISTENER IMPLEMENTATION
 			public void actionPerformed(ActionEvent event) {
 				int a = Integer.parseInt(tf.getText());
 				int b = Integer.parseInt(tf2.getText());
 				int c;
 				
-				if(cxk.isContentAreaFilled()) {
+				if(cxk.isSelected()) {
 					c = a * b;
 				}
 				else {
@@ -56,11 +56,11 @@ public class GraphicTesting {
 			}
 		}
 		
-		//AGGIUNTA EVENTO A PULSANTE
+		//ADDING EVENT TO THE BUTTON
 		button.addActionListener(new buttonAction());
 		
 		
-		//AGGIUNTA ELEMENTI AL PRIMO PANNELLO SECONDARIO E AL PANNELLO PRIMARIO CON BORDERLAYOUT
+		//ADDING ELEMENTS TO PANELS W/BORDERLAYOUT
 		panel2.add(label);
 		panel2.add(tf);
 		panel2.add(tf2);
@@ -68,7 +68,7 @@ public class GraphicTesting {
 		panel.add(panel2, BorderLayout.CENTER);
 		panel.add(titlepanel, BorderLayout.NORTH);
 		
-		//AGGIUNTA PANNELLO PRIMARIO E VISUALIZZAZIONE FRAME (Va fatta ad ogni cambiamento)
+		//ADDING MAIN PANEL AND FRAME VISUALIZATION (Needs to be done at every change)
 		frame.add(panel);
 		frame.setVisible(true);
 		
